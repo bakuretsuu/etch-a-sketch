@@ -17,3 +17,15 @@
 .hovered{
     background-color: #333;
 }
+
+.center{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.button{
+    width: 200px;
+    margin-bottom: 100px;
+}
