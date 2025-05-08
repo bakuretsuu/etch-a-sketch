@@ -14,9 +14,7 @@
     box-sizing: border-box;
 }
 
-.hovered{
-    background-color: #333;
-}
+
 
 .center{
     display: flex;
@@ -28,4 +26,8 @@
 .button{
     width: 200px;
     margin-bottom: 25px;
+}
+
+body{
+    background-color: black;
 }

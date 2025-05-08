@@ -13,10 +13,18 @@ function createGrid(width, height) {
         square.classList.add('square');
         square.style.width = `${squareSize}px`;
         square.style.height = `${squareSize}px`;
-
+        square.dataset.darkness = 0;
         square.addEventListener("mouseenter", () => {
-            square.classList.add('hovered');
-            colorGenerator(square);
+            let darkness = parseFloat(square.dataset.darkness);
+
+            if (darkness == 0){
+                colorGenerator(square);
+            }
+            if (darkness < 1){
+                darkness += 0.1;
+                square.style.opacity = darkness;
+                square.dataset.darkness = darkness;
+            }
         });
 
         container.appendChild(square);
@@ -45,5 +53,6 @@ function colorGenerator(square){
     const b = Math.floor(Math.random() * 256); 
     square.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
 }
+
 
 createGrid(width, height);
