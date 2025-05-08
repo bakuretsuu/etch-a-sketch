@@ -22,7 +22,7 @@ function createGrid(width, height) {
             }
             if (darkness < 1){
                 darkness += 0.1;
-                darkness = Math.min(darkness,1);
+               
                 square.style.opacity = darkness;
                 square.dataset.darkness = darkness;
             }
