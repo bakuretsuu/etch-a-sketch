@@ -6,16 +6,17 @@ let height = width;
 function createGrid(width, height) {
     
     container.innerHTML = '';
-
     let squareSize = 640 / width; 
 
     for (let i = 0; i < width * height; i++) {
         let square = document.createElement('div');
         square.classList.add('square');
-        
+        square.style.width = `${squareSize}px`;
+        square.style.height = `${squareSize}px`;
 
         square.addEventListener("mouseenter", () => {
             square.classList.add('hovered');
+            colorGenerator(square);
         });
 
         container.appendChild(square);
@@ -38,5 +39,11 @@ function changeDimension() {
     createGrid(width, height);
 }
 
-// Create initial grid
+function colorGenerator(square){
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256); 
+    square.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+}
+
 createGrid(width, height);
