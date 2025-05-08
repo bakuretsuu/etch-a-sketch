@@ -15,13 +15,14 @@ function createGrid(width, height) {
         square.style.height = `${squareSize}px`;
         square.dataset.darkness = 0;
         square.addEventListener("mouseenter", () => {
+            
             let darkness = parseFloat(square.dataset.darkness);
-
             if (darkness == 0){
                 colorGenerator(square);
             }
             if (darkness < 1){
                 darkness += 0.1;
+                darkness = Math.min(darkness,1);
                 square.style.opacity = darkness;
                 square.dataset.darkness = darkness;
             }
